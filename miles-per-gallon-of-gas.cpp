@@ -27,7 +27,7 @@ int main()
 
 	//calculate miles per gallon in town and on highway
 	mpgTown = townMilesAvg / fullTank;
-	mpgHighway = HighwayMilesAvg / fullTank;
+	mpgHighway = highwayMilesAvg / fullTank;
 
 	// display the results
 	cout << "The vehicle gets " << mpgTown << " miles per gallon when driven in town, \nand " 
