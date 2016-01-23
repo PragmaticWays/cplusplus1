@@ -1,6 +1,6 @@
-# basic-c-plus-plus
+# ciss-241
 
-Homework solutions for Columbia College from courses CCIS-241, CCIS-242, and CCIS-243.
+Homework solutions for Columbia College course CISS-241 Programming I (C++).
 
 Homework samples are taken from the following textbook:
 Gaddis, Tony. 
