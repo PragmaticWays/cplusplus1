@@ -1,5 +1,7 @@
 /*
-CCIS-241
+–-----------------------------------------------------------------------------------------------------------------------------------------
+Adam Allard
+CISS-241
 Week 2
 Assignment 1 
 Miles per gallon of Gas 
@@ -13,31 +15,25 @@ MPG = Total number of Miles / Number of Gallons
 
 #include <iostream>
 using namespace std;
+
 int main()
 {
-   // set variables as doubles
-   double price, temp;
-   
-   // get retail price from user
-   cout << "Type in the retail price and press enter: ";
-   cin >> price;
-   
-   // get sales tax rate from user
-   cout << "Type in the sales tax rate and press enter: ";
-   cin >> temp;
-   
-   // change sales tax rate (temp) into percentage
-   temp /= 100;
-   
-   // add 1 to sales tax rate (adjusted tax rate)
-   temp++;
-   
-   // reassign price to equal total price (price * adjusted tax rate)
-   price = temp * price;
-   
-   // display total to user
-   cout << "The total price is $" << totalSalePrice << endl;
-   
-   system("pause");
-   return 0;
+	int fullTank = 16,
+	    townMilesAvg = 345,
+	    highwayMilesAvg = 460;
+
+	double mpgTown,
+	       mpgHighway;
+
+	//calculate miles per gallon in town and on highway
+	mpgTown = townMilesAvg / fullTank;
+	mpgHighway = HighwayMilesAvg / fullTank;
+
+	// display the results
+	cout << "The vehicle gets " << mpgTown << " miles per gallon when driven in town, \nand " 
+		 << mpgHighway << " miles per gallon when driven on the highway.\n";
+
+	// this statement is needed to avoid the program from closing immediately 
+	system("pause");
+	return 0;
 }
