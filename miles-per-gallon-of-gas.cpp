@@ -1,3 +1,4 @@
+/*
 CCIS-241
 Week 2
 Assignment 1 
@@ -8,6 +9,7 @@ Write a program that calculates and displays the miles per gallon for one tank o
 The MPG should have a data type of a double. 
 MPG = Total number of Miles / Number of Gallons
 –----------------------------------------------------------------------------------------------------------------------------------------
+*/
 
 #include <iostream>
 using namespace std;
