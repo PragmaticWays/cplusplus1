@@ -25,11 +25,11 @@ int main()
 {
 	int numShares = 600;
 	double sharePrice = 21.77,
-		     commissionPerTran = .02,
-		     stockBasePrice,
+	       commissionPerTran = .02,
+	       stockBasePrice,
 	       commissionAddOn,
-		     totalStockPrice,
-		     sellStockAt;
+	       totalStockPrice,
+	       sellStockAt;
 
 	// calculate all the unknown value variables
 	stockBasePrice = numShares * sharePrice;
