@@ -1,11 +1,11 @@
 /*
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 Adam Allard
 CISS - 241
 Week 5
 Assignment 2
 Working With Files
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 You will need the text file Random.txtthat can be found in the Content area of the course under Week 5.  
 The file contains a list of random numbers. 
 Write a program that opens the file and reads all the numbers from the file, and calculate/determine the following:
@@ -15,7 +15,7 @@ Write a program that opens the file and reads all the numbers from the file, and
    4. Determine the lowest and highest values in the file
         The program must validate that the file was opened before reading from the file.
         If file does not exist then display a message telling the user that the file could not be opened and exit the program.
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 */
 
 #include <fstream>
@@ -26,10 +26,10 @@ using namespace std;
 int main() {
 
 	int readNumber,
-		total,
 		lowestNum,
 		highestNum,
-		count;
+		count = 0, 
+		total = 0;
 	double average;
 
 	ifstream randomNumFile("C:\\Users\\Adam\\Desktop\\CISS_241\\5_2\\Random.txt");
@@ -39,30 +39,24 @@ int main() {
 
 		randomNumFile >> readNumber;
 
-		// the first number is read from the file out of the loop in order to enter in a value
-		// for all the other variables. you cannot test a variable that has not
-		// yet been initialized. by doing it this way i am able to read the first number, set that value
-		// equal to all the other values so i can test which one is lower or higher, and store
-		// it in the appropriate variable.
-
-		// i also add one to 'count' outside of the loop instead of setting it to zero inside the loop.
-		// and initialized 'total' to the first number instead of zero inside the first loop. 
-
-		count = 1;
-		total = lowestNum = highestNum = readNumber;
-
 		while (randomNumFile >> readNumber) {
-			if (readNumber < lowestNum) {
+			
+			// if first number, assign highest and lowest numbers
+			if (count == 0) {
+				highestNum = readNumber;
 				lowestNum = readNumber;
 			}
-			else if (readNumber > highestNum) {
+			
+			if (readNumber < lowestNum) {
+				lowestNum = readNumber;
+			} else if (readNumber > highestNum) {
 				highestNum = readNumber;
 			}
 			total += readNumber;
 			count++;
 		} // <-- end of while loop
 
-		// to avoid integer division
+		// cast total to avoid integer division
 		average = static_cast<double>(total) / count;
 
 		randomNumFile.close();
@@ -83,6 +77,5 @@ int main() {
 		return 0;
 	}
 	
-	system("pause");
 	return 0;
 }
