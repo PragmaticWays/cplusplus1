@@ -65,11 +65,11 @@ int main() {
 		}
 
 		// format the output for organization
-		cout << left << setw(25) << "Numbers read from file: "			<< right << setw(8) << count << endl
-			 << left << setw(25) << "Sum of all numbers: "				<< right << setw(8) << total << endl
-			 << left << setw(25) << "Average of all numbers: "			<< right << setw(8) << average << endl
-			 << left << setw(25) << "Lowest value in file: "			<< right << setw(8) << lowestNum << endl
-			 << left << setw(25) << "Highest value in file: "			<< right << setw(8) << highestNum << endl << endl;
+		cout << left << setw(25) << "Numbers read from file: "		<< right << setw(8) << count << endl
+			 << left << setw(25) << "Sum of all numbers: "		<< right << setw(8) << total << endl
+			 << left << setw(25) << "Average of all numbers: "	<< right << setw(8) << average << endl
+			 << left << setw(25) << "Lowest value in file: "	<< right << setw(8) << lowestNum << endl
+			 << left << setw(25) << "Highest value in file: "	<< right << setw(8) << highestNum << endl << endl;
 	} // <-- end of 'if(randomNumFile)' loop
 	else {
 		cout << "Error opening the file." << endl;
