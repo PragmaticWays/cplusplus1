@@ -1,5 +1,5 @@
 Homework solutions for Columbia College course 
-#CISS-241 Programming I (C++).
+# CISS-241 Programming I (C++).
 
 Homework samples are taken from the following textbook:
 Gaddis, Tony. 
