@@ -39,8 +39,7 @@ int currentFirst, currentC1, currentC2 = 0;
 
 double totalSales = 0;
 
-int main()
-{
+int main() {
 	getPriceInfo();
 	fillSeatingChart();
 	showMenu();
@@ -49,8 +48,7 @@ int main()
 	return 0;
 }
 
-void getPriceInfo()
-{
+void getPriceInfo() {
 	int count = 0;
 	ifstream inputFile;
 	inputFile.open("C:\\Users\\Adam\\Desktop\\SeatPrices.txt");
@@ -60,8 +58,7 @@ void getPriceInfo()
 	inputFile.close();
 }
 
-void fillSeatingChart()
-{
+void fillSeatingChart() {
 	for (int row = 0; row < 5; row++) {
 		for (int col = 0; col < 4; col++) {
 			firstClass[row][col] = '#';
@@ -79,8 +76,7 @@ void fillSeatingChart()
 	}
 }
 
-void showSeatingChart()
-{
+void showSeatingChart() {
 	cout << "Seating Chart" << endl;
 	cout << "\t" << "1 2 3 4" << endl;
 	for (int row = 0; row < 5; row++) {
@@ -113,8 +109,7 @@ void showSeatingChart()
 	cout << endl;
 }
 
-void showMenu()
-{
+void showMenu() {
 	cout << "Main Menu" << endl << endl;
 	cout << "1. Reserve seat(s)" << endl;
 	cout << "2. Show me the seating chart." << endl;
@@ -129,8 +124,7 @@ void showMenu()
 	cout << endl;
 }
 
-void getMenuSelection()
-{
+void getMenuSelection() {
 	const int
 		RESERVE_SEAT = 1,
 		SHOW_CHART = 2,
@@ -175,8 +169,7 @@ void getMenuSelection()
 	showMenu();
 }
 
-void reserveSeat()
-{
+void reserveSeat() {
 	double currentTotal = 0;
 	int numTickets;
 	cout << "How many tickets would you like to reserve?: ";
@@ -198,8 +191,7 @@ void reserveSeat()
 	currentFirst = currentC1 = currentC2 = 0;
 }
 
-void getSeatRequest()
-{
+void getSeatRequest() {
 	int row, col;
 	cout << "what row do you want your seat? (1 - 15): ";
 	cin >> row;
@@ -231,8 +223,7 @@ void getSeatRequest()
 	checkSeatRequest(row, col);
 }
 
-void checkSeatRequest(int row, int col)
-{
+void checkSeatRequest(int row, int col) {
 	if (row >= 1 && row <= 5) {
 		if (firstClass[row - 1][col - 1] == '*') {
 			cout << "Sorry, that seat is already taken." << endl;
@@ -265,8 +256,7 @@ void checkSeatRequest(int row, int col)
 	}
 }
 
-void seatsSold()
-{
+void seatsSold() {
 	int totalSeatsSold = firstClassSold + coach1Sold + coach2Sold;
 	cout << "There are " << totalSeatsSold << " seats sold on the plane." << endl << endl
 		<< "First Class Total: " << firstClassSold << endl
@@ -275,8 +265,7 @@ void seatsSold()
 		<< "    Coach 2: " << coach2Sold << endl << endl;
 }
 
-void seatsEmptyInRow()
-{
+void seatsEmptyInRow() {
 	int checkRow;
 	int count = 0;
 	cout << "What row do you want to check?: ";
@@ -318,8 +307,7 @@ void seatsEmptyInRow()
 		cout << endl;
 }
 
-void seatsEmptyOnPlane()
-{
+void seatsEmptyOnPlane() {
 	int emptyTotal, emptyFirst = 0, emptyC1 = 0, emptyC2 = 0;
 	for (int row = 0; row < 5; row++) {
 		for (int col = 0; col < 4; col++) {
@@ -350,8 +338,7 @@ void seatsEmptyOnPlane()
 		<< "    Section 2: " << emptyC2 << endl << endl;
 }
 
-void totalSalesDisplay()
-{
+void totalSalesDisplay() {
 	double firstSales = firstClassSold * seatPrices[0];
 	double coachSales = (coach1Sold * seatPrices[1]) + (coach2Sold * seatPrices[2]);
 
