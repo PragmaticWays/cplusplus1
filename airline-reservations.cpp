@@ -1,13 +1,13 @@
 /*
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 Adam Allard
 CISS - 241
 Week 8
 Course Project
 Airline Reservations
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 See Content area for course project description. 
-–---------------------------------------------------------------------------------------------------------------------------------------- -
+â€“---------------------------------------------------------------------------------------------------------------------------------------- -
 */
 
 #include <iostream>
@@ -54,8 +54,7 @@ void getPriceInfo()
 	int count = 0;
 	ifstream inputFile;
 	inputFile.open("C:\\Users\\Adam\\Desktop\\SeatPrices.txt");
-	while (count < 3 && inputFile >> seatPrices[count])
-	{
+	while (count < 3 && inputFile >> seatPrices[count]) {
 		count++;
 	}
 	inputFile.close();
@@ -63,24 +62,18 @@ void getPriceInfo()
 
 void fillSeatingChart()
 {
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 4; col++)
-		{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 4; col++) {
 			firstClass[row][col] = '#';
 		}
 	}
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 6; col++)
-		{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 6; col++) {
 			coach1[row][col] = '#';
 		}
 	}
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 6; col++)
-		{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 6; col++) {
 			coach2[row][col] = '#';
 		}
 	}
@@ -90,33 +83,27 @@ void showSeatingChart()
 {
 	cout << "Seating Chart" << endl;
 	cout << "\t" << "1 2 3 4" << endl;
-	for (int row = 0; row < 5; row++)
-	{
+	for (int row = 0; row < 5; row++) {
 		cout << "Row " << (row + 1) << "\t";
-		for (int col = 0; col < 4; col++)
-		{
+		for (int col = 0; col < 4; col++) {
 			cout << firstClass[row][col] << " ";
 		}
 		cout << endl;
 	}
 
 	cout << "\t" << "123 456" << endl;
-	for (int row = 0; row < 5; row++)
-	{
+	for (int row = 0; row < 5; row++) {
 		cout << "Row " << (row + 6) << "\t";
-		for (int col = 0; col < 6; col++)
-		{
+		for (int col = 0; col < 6; col++) {
 			cout << coach1[row][col];
 			if (col == 2)
 				cout << " ";
 		}
 		cout << endl;
 	}
-	for (int row = 0; row < 5; row++)
-	{
+	for (int row = 0; row < 5; row++) {
 		cout << "Row " << (row + 11) << "\t";
-		for (int col = 0; col < 6; col++)
-		{
+		for (int col = 0; col < 6; col++) {
 			cout << coach2[row][col];
 			if (col == 2)
 				cout << " ";
@@ -156,15 +143,13 @@ void getMenuSelection()
 
 	cin >> choice;
 	cout << "-------------------------------------------";
-	while (choice < RESERVE_SEAT || choice > EXIT)
-	{
+	while (choice < RESERVE_SEAT || choice > EXIT) {
 		cout << "Please enter a valid menu choice (1 - 7): ";
 		cin >> choice;
 	}
 	cout << endl;
 
-	switch (choice)
-	{
+	switch (choice) {
 	case RESERVE_SEAT:
 		reserveSeat();
 		break;
@@ -197,8 +182,7 @@ void reserveSeat()
 	cout << "How many tickets would you like to reserve?: ";
 	cin >> numTickets;
 	cout << endl;
-	for (int i = 0; i < numTickets; i++)
-	{
+	for (int i = 0; i < numTickets; i++) {
 		getSeatRequest();
 	}
 
@@ -219,18 +203,15 @@ void getSeatRequest()
 	int row, col;
 	cout << "what row do you want your seat? (1 - 15): ";
 	cin >> row;
-	while (row < 1 || row > 15)
-	{
+	while (row < 1 || row > 15) {
 		cout << "Invalid row choice. Please enter a row 1 - 15: ";
 		cin >> row;
 	}
 	cout << "what column do you want your seat? (1 - 6): ";
 	cin >> col;
 	cout << endl;
-	if (row >= 1 && row <= 5)
-	{
-		while (col < 1 || col > 4)
-		{
+	if (row >= 1 && row <= 5) {
+		while (col < 1 || col > 4) {
 			cout << "First class seating only has 4 columns." << endl
 				<< "Please enter a column 1 - 4: ";
 			cin >> col;
@@ -252,41 +233,32 @@ void getSeatRequest()
 
 void checkSeatRequest(int row, int col)
 {
-	if (row >= 1 && row <= 5)
-	{
-		if (firstClass[row - 1][col - 1] == '*')
-		{
+	if (row >= 1 && row <= 5) {
+		if (firstClass[row - 1][col - 1] == '*') {
 			cout << "Sorry, that seat is already taken." << endl;
 			getSeatRequest();
 		}
-		if (firstClass[row - 1][col - 1] != '*')
-		{
+		if (firstClass[row - 1][col - 1] != '*') {
 			firstClass[row - 1][col - 1] = '*';
 			currentFirst++;
 		}
 	}
-	if (row >= 6 && row <= 10)
-	{
-		if (coach1[row - 6][col - 1] == '*')
-		{
+	if (row >= 6 && row <= 10) {
+		if (coach1[row - 6][col - 1] == '*') {
 			cout << "Sorry, that seat is already taken." << endl;
 			getSeatRequest();
 		}
-		if (coach1[row - 6][col - 1] != '*')
-		{
+		if (coach1[row - 6][col - 1] != '*') {
 			coach1[row - 6][col - 1] = '*';
 			currentC1++;
 		}
 	}
-	if (row >= 11 && row <= 15)
-	{
-		if (coach2[row - 11][col - 1] == '*')
-		{
+	if (row >= 11 && row <= 15) {
+		if (coach2[row - 11][col - 1] == '*') {
 			cout << "Sorry, that seat is already taken." << endl;
 			getSeatRequest();
 		}
-		if (coach2[row - 11][col - 1] != '*')
-		{
+		if (coach2[row - 11][col - 1] != '*') {
 			coach2[row - 11][col - 1] = '*';
 			currentC2++;
 		}
@@ -310,39 +282,28 @@ void seatsEmptyInRow()
 	cout << "What row do you want to check?: ";
 	cin >> checkRow;
 	cout << endl;
-	while (checkRow != 0)
-	{
-		while (checkRow < 0 || checkRow > 15)
-		{
+	while (checkRow != 0) {
+		while (checkRow < 0 || checkRow > 15) {
 			cout << "There are only 15 rows. Reenter row number: ";
 			cin >> checkRow;
 		}
-		if (checkRow >= 1 && checkRow <= 5)
-		{
-			for (int col = 0; col < 4; col++)
-			{
-				if (firstClass[checkRow - 1][col] == '#')
-				{
+		if (checkRow >= 1 && checkRow <= 5) {
+			for (int col = 0; col < 4; col++) {
+				if (firstClass[checkRow - 1][col] == '#') {
 					count++;
 				}
 			}
 		}
-		else if (checkRow >= 6 && checkRow <= 10)
-		{
-			for (int col = 0; col < 6; col++)
-			{
-				if (coach1[checkRow - 6][col] == '#')
-				{
+		else if (checkRow >= 6 && checkRow <= 10) {
+			for (int col = 0; col < 6; col++) {
+				if (coach1[checkRow - 6][col] == '#') {
 					count++;
 				}
 			}
 		}
-		else if (checkRow >= 11 && checkRow <= 15)
-		{
-			for (int col = 0; col < 6; col++)
-			{
-				if (coach2[checkRow - 11][col] == '#')
-				{
+		else if (checkRow >= 11 && checkRow <= 15) {
+			for (int col = 0; col < 6; col++) {
+				if (coach2[checkRow - 11][col] == '#') {
 					count++;
 				}
 			}
@@ -360,32 +321,23 @@ void seatsEmptyInRow()
 void seatsEmptyOnPlane()
 {
 	int emptyTotal, emptyFirst = 0, emptyC1 = 0, emptyC2 = 0;
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 4; col++)
-		{
-			if (firstClass[row][col] == '#')
-			{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 4; col++) {
+			if (firstClass[row][col] == '#') {
 				emptyFirst++;
 			}
 		}
 	}
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 6; col++)
-		{
-			if (coach1[row][col] == '#')
-			{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 6; col++) {
+			if (coach1[row][col] == '#') {
 				emptyC1++;
 			}
 		}
 	}
-	for (int row = 0; row < 5; row++)
-	{
-		for (int col = 0; col < 6; col++)
-		{
-			if (coach2[row][col] == '#')
-			{
+	for (int row = 0; row < 5; row++) {
+		for (int col = 0; col < 6; col++) {
+			if (coach2[row][col] == '#') {
 				emptyC2++;
 			}
 		}
